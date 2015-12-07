@@ -1,0 +1,27 @@
+<h2><%= resource_name.to_s.humanize %> bearbeiten</h2>
+
+<%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :email, :required => true, :autofocus => true %>
+
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <% end %>
+
+    <%= f.input :password, :autocomplete => "off", :hint => "leer lassen, falls Sie es nicht ändern möchten", :required => false %>
+    <%= f.input :password_confirmation, :required => false %>
+    <%= f.input :current_password, :hint => "Wir brauchen Ihr aktuelles Passwort, um Ihre Änderungen zu bestätigen", :required => true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Aktualisieren", :class=>'btn btn-primary' %>
+  </div>
+<% end %>
+
+<h3>Mein Konto kündigen</h3>
+
+<p>Unzufrieden? <%= link_to "Mein Konto kündigen", registration_path(resource_name), :data => { :confirm => "Sind Sie sicher?" }, :method => :delete, :class=>'btn btn-danger btn-mini' %>.</p>
+
+<%= link_to "Zurück", :back %>

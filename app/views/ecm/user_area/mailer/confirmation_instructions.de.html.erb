@@ -1,0 +1,5 @@
+<p>Willkommen <%= @resource.email %>!</p>
+
+<p>Sie können Ihre E-Mail-Konto über den Link unten bestätigen:</p>
+
+<p><%= link_to 'Bestätigen Sie Ihr Konto', confirmation_url(@resource, :confirmation_token => @resource.confirmation_token, :i18n_locale => I18n.locale) %></p>

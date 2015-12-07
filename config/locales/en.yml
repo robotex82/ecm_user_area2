@@ -1,0 +1,32 @@
+en:
+  activerecord:
+    attributes:
+      user:
+        created_at: created at
+        current_password: current password
+        current_sign_in_at: logged in since
+        email: e-mail
+        last_sign_in_at: last sign in at
+        last_sign_in_ip: last sign in ip
+        password: password
+        password_confirmation: password confirmation
+        remember_me: remember me?
+        sign_in_count: sign in count
+    models:
+      user:
+        one: user
+        other: users
+  ecm:
+    user_area:
+      actions:
+        registration:
+          edit: My account
+          new: Register
+        sign_in: Sign in
+        sign_out: Sign out
+      navigation_dropdown:
+        not_signed_in: Not signed in
+      messages:
+        registrations_disabled: Registrations are disabled at the moment.
+  resources:
+    users: users
