@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   
   scope :never_signed_in, -> { where(sign_in_count: 0) }
 
+  validates :email, uniqueness: true
+
   def devise_mailer
     Ecm::UserArea::Mailer
   end

@@ -24,6 +24,11 @@ Add routes:
   # config/routes.rb
   Ecm::UserArea::Routing.routes(self)
 
+Add the helpers:
+
+  #app/controllers/application_controller.rb
+  helper Ecm::UserAreaHelper  
+
 = Usage
 
 to secure a controller, add following before_action:
@@ -32,6 +37,21 @@ to secure a controller, add following before_action:
   before_action :authenticate_user!
 
 When you visit any controller actions, you will be redirected to the sign in form.
+
+= How to add a user navigation?
+
+Inside a navbar:
+
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <%= render_user_navigation %>
+    </div>
+
+You can call render_user_navigation(dropdown: true) to create a dropdown navigation
 
 = Running Specs
 

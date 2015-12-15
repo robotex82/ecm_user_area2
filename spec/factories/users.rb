@@ -6,5 +6,9 @@ FactoryGirl.define do
     password "password"
     password_confirmation "password"
   end
+
+  factory :confirmed_user, parent: :user do
+    after(:create) { |user| user.confirm }
+  end
 end
 
