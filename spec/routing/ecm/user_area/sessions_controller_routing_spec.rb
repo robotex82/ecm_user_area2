@@ -7,4 +7,3 @@ module Ecm::UserArea
     end
   end
 end
-

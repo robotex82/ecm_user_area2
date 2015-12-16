@@ -11,7 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207110352) do
+ActiveRecord::Schema.define(version: 20151215172130) do
+
+  create_table "ecm_user_area_permissions", force: :cascade do |t|
+    t.string   "identifier"
+    t.datetime "enabled_from"
+    t.datetime "enabled_to"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "ecm_user_area_role_permissions", force: :cascade do |t|
+    t.integer  "role_id"
+    t.integer  "permission_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "ecm_user_area_role_permissions", ["permission_id"], name: "index_ecm_user_area_role_permissions_on_permission_id"
+  add_index "ecm_user_area_role_permissions", ["role_id"], name: "index_ecm_user_area_role_permissions_on_role_id"
+
+  create_table "ecm_user_area_roles", force: :cascade do |t|
+    t.string   "identifier"
+    t.string   "enabled_from"
+    t.string   "enabled_to"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "ecm_user_area_user_roles", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "role_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ecm_user_area_user_roles", ["role_id"], name: "index_ecm_user_area_user_roles_on_role_id"
+  add_index "ecm_user_area_user_roles", ["user_id"], name: "index_ecm_user_area_user_roles_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

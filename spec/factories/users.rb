@@ -2,13 +2,12 @@
 
 FactoryGirl.define do
   factory :user do
-    sequence(:email) { | n | "user#{n}@example.com" }
-    password "password"
-    password_confirmation "password"
+    sequence(:email) { |n| "user#{n}@example.com" }
+    password 'password'
+    password_confirmation 'password'
   end
 
   factory :confirmed_user, parent: :user do
-    after(:create) { |user| user.confirm }
+    after(:create, &:confirm)
   end
 end
-

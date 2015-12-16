@@ -10,7 +10,7 @@ module Ecm
         within('#new_user') do
           fill_in 'user[email]',    with: user.email
           fill_in 'user[password]', with: user.password
-          
+
           find('[type=submit]').click
         end
       end

@@ -1,8 +1,10 @@
 namespace :ecm do
   namespace :user_area do
-    desc "Creates default user: user@example.com/password"
+    desc 'Creates default user: user@example.com/password'
     task create_default_user: :environment do
-      p "WARNING: Creating an example user on production is a potential security flaw. Be sure to change credentails ASAP!" if Rails.env.production?
+      if Rails.env.production?
+        p 'WARNING: Creating an example user on production is a security flaw. Be sure to change credentails ASAP!'
+      end
       user = User.new(email: 'user@example.com', password: 'password', password_confirmation: 'password')
 
       if user.save
@@ -13,12 +15,12 @@ namespace :ecm do
       end
     end
 
-    desc "Deletes (destroys) default user: user@example.com"
+    desc 'Deletes (destroys) default user: user@example.com'
     task delete_default_user: :environment do
       user = User.where(email: 'user@example.com').first
 
       unless user.present?
-        puts "Could not find default user (user@example.com)" and next
+        puts('Could not find default user (user@example.com)') && next
       end
 
       if user.destroy
@@ -29,4 +31,3 @@ namespace :ecm do
     end
   end
 end
-

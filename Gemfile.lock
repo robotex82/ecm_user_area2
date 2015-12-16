@@ -4,7 +4,7 @@ PATH
     ecm_user_area2 (1.0.0)
       devise
       devise-i18n
-      rails (> 4.0)
+      rails (>= 4.0)
       simple_form
 
 GEM

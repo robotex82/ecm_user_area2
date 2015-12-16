@@ -57,7 +57,7 @@ You can call render_user_navigation(dropdown: true) to create a dropdown navigat
 
     gem install bundler
     bundle
-    cd spec/dummy && rake db:migrate RAILS_ENV=test && cd ../..
+    cd spec/dummy && rake ecm_user_area:install:migrations && rake db:migrate RAILS_ENV=test && cd ../..
     guard
 
 This project rocks and uses MIT-LICENSE.
