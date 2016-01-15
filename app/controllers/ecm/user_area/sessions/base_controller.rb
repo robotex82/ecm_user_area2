@@ -8,6 +8,8 @@ module Ecm::UserArea
 
     def create
       @session = session_class.new(permitted_params)
+      # raise permitted_params.inspect
+      # raise @session.inspect
       if @session.save
         redirect_to after_sign_in_url
       else
@@ -51,7 +53,8 @@ module Ecm::UserArea
     end
 
     def permitted_params
-      params.require(:user_session).permit()
+      # raise 'Undefined abstract method permitted_params'
+      params.require(session_class.name.demodulize.underscore.gsub('/', '_')).permit(:email, :password)
     end
   end
 end
