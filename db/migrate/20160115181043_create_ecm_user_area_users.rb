@@ -1,6 +1,6 @@
 class CreateEcmUserAreaUsers < ActiveRecord::Migration
   def change
-    create_table :users do |t|
+    create_table :ecm_user_area_users do |t|
       # Authlogic::ActsAsAuthentic::Email
       t.string    :email
 

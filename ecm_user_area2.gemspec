@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", ">= 4.0"
 
   s.add_dependency "authlogic"
+  s.add_dependency "bcrypt"
   s.add_dependency "haml-rails"
   s.add_dependency "simple_form"  
 

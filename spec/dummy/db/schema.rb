@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160115181231) do
+ActiveRecord::Schema.define(version: 20160115192220) do
 
-  create_table "users", force: :cascade do |t|
+  create_table "ecm_user_area_users", force: :cascade do |t|
     t.string   "email"
     t.string   "crypted_password"
     t.string   "password_salt"

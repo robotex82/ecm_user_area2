@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 module Ecm::UserArea
   class User < ActiveRecord::Base
     acts_as_authentic do |config|

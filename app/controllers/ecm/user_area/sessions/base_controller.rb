@@ -7,9 +7,10 @@ module Ecm::UserArea
     end
 
     def create
+      # @user = User.where(email: permitted_params[:email], password: permitted_params[:password]).first
+      # @session = session_class.new(@user)
       @session = session_class.new(permitted_params)
-      # raise permitted_params.inspect
-      # raise @session.inspect
+      
       if @session.save
         redirect_to after_sign_in_url
       else

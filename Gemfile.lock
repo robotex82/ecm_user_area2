@@ -3,6 +3,7 @@ PATH
   specs:
     ecm_user_area2 (1.0.0)
       authlogic
+      bcrypt
       haml-rails
       rails (>= 4.0)
       simple_form
@@ -54,6 +55,7 @@ GEM
       activesupport (>= 3.2)
       request_store (~> 1.0)
       scrypt (>= 1.2, < 3.0)
+    bcrypt (3.1.10)
     builder (3.2.2)
     capybara (2.5.0)
       mime-types (>= 1.16)
