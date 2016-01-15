@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   localized do
-    Ecm::UserArea::Routing.routes(self)
+    mount Ecm::UserArea::Engine, at: '/auth'
 
     get '/', to: 'home#index'
   end
