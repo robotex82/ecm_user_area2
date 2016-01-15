@@ -16,6 +16,8 @@ module Ecm::UserArea
     has_many :role_permissions, class_name: 'Ecm::UserArea::RolePermission'
     has_many :permissions, class_name: 'Ecm::UserArea::Permission', through: :role_permissions
 
+    has_many :enabled_permissions, -> { enabled }, class_name: 'Ecm::UserArea::Permission', through: :role_permissions, source: :role
+
     flag_from_time_range :enabled?
 
     # validations
@@ -25,6 +27,10 @@ module Ecm::UserArea
 
     # callbacks
     after_initialize :set_defaults
+
+    def human
+      "#{self.class.model_name.human}: #{identifier}"
+    end
 
     private
 

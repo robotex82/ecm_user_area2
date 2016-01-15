@@ -1,0 +1,22 @@
+defaults:
+  permissions:
+    - ecm/user_area/backend/engine
+    - user/index
+    - user/show
+    - user/new
+    - user/create
+    - user/edit
+    - user/update
+  roles:
+    ecm/user_area/administrator:
+      - ecm/user_area/backend/engine
+      - user/index
+      - user/show
+      - user/new
+      - user/create
+      - user/edit
+      - user/update
+    ecm/user_area/reviewer:
+      - ecm/user_area/backend/engine
+      - user/index
+      - user/show

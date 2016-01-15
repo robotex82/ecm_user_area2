@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'devise'
   s.add_dependency 'devise-i18n'
+  s.add_dependency 'itsf_services'
   s.add_dependency 'simple_form'
 
   s.add_development_dependency 'rails-dummy'

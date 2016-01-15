@@ -6,8 +6,13 @@ class User < ActiveRecord::Base
       # associations
       has_many :user_roles, class_name: 'Ecm::UserArea::UserRole'
       has_many :roles, class_name: 'Ecm::UserArea::Role', through: :user_roles
+      has_many :role_permissions, class_name: 'Ecm::UserArea::RolePermission', through: :roles
+      has_many :permissions, through: :role_permissions, class_name: 'Ecm::UserArea::Permission'
 
-      has_many :enabled_roles, -> { enabled }, class_name: 'Ecm::UserArea::Role', through: :user_roles, source: :user
+      has_many :enabled_roles, -> { enabled }, class_name: 'Ecm::UserArea::Role', through: :user_roles # , source: :user
+      has_many :enabled_role_permissions, class_name: 'Ecm::UserArea::RolePermission', through: :enabled_roles, source: :user_roles
+      
+      has_many :enabled_permissions, through: :enabled_role_permissions, class_name: 'Ecm::UserArea::Permission', source: :permission
     end
 
     def allowed_to?(permission_name)

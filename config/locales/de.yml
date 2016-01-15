@@ -1,6 +1,22 @@
 de:
   activerecord:
     attributes:
+      ecm/user_area/permission:
+        actions: Aktionen
+        created_at: Erstellt am
+        enabled?: Aktiv
+        enabled_from: Aktiv ab
+        enabled_to: Aktiv bis
+        identifier: Bezeichner
+        updated_at: Aktualisiert am
+      ecm/user_area/role:
+        actions: Aktionen
+        created_at: Erstellt am
+        enabled?: Aktiv
+        enabled_from: Aktiv ab
+        enabled_to: Aktiv bis
+        identifier: Bezeichner
+        updated_at: Aktualisiert am
       user:
         confirmed_at: Bestätigt am
         confirmation_sent_at: Bestätigungstoken gesendet am
@@ -26,6 +42,12 @@ de:
         unlock_token: Entsperrtoken
         updated_at: Aktualisiert am
     models:
+      ecm/user_area/permission:
+        one: Berechtigung
+        other: Berechtigungen
+      ecm/user_area/role:
+        one: Rolle
+        other: Rollen
       user:
         one: Benutzer
         other: Benutzer

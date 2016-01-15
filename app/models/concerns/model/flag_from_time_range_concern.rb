@@ -14,7 +14,6 @@ module Model
             time_range.cover? Time.zone.now
           end
 
-
           define_singleton_method method_name_base do
             t = arel_table
             now = Time.zone.now

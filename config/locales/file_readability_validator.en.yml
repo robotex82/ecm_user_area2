@@ -1,0 +1,7 @@
+en:
+  errors:
+    messages:
+      file_not_existent: "%{filename} does not exist"
+      file_not_file: "%{filename} is not a file"
+      filename_is_nil: "can't be blank"
+      file_readable: "Can't read from %{filename}"

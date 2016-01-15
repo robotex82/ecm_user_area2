@@ -10,7 +10,13 @@ module Ecm::UserArea
     # associations
     has_many :role_permissions, class_name: 'Ecm::UserArea::RolePermission'
     has_many :roles, class_name: 'Ecm::UserArea::Role', through: :role_permissions
+    has_many :user_roles, through: :roles, class_name: 'Ecm::UserArea::UserRole'
+    has_many :users, through: :user_roles, class_name: 'User'
+
     has_many :enabled_roles, -> { enabled }, class_name: 'Ecm::UserArea::Role', through: :role_permissions, source: :permission
+    has_many :enabled_user_roles, class_name: 'Ecm::UserArea::UserRole', through: :enabled_roles, source: :role_permissions
+
+    has_many :enabled_users, through: :enabled_user_roles, class_name: 'User', source: :user
 
     flag_from_time_range :enabled?
 
@@ -21,6 +27,10 @@ module Ecm::UserArea
 
     # callbacks
     after_initialize :set_defaults
+
+    def human
+      "#{self.class.model_name.human}: #{identifier}"
+    end
 
     private
 

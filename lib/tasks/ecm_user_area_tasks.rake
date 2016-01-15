@@ -29,5 +29,14 @@ namespace :ecm do
         puts "Could not destroy user. Errors: #{user.errors.full_messages.to_sentence}"
       end
     end
+
+    desc 'Imports default permissions from config/rbac.yml'
+    task :import_default_permissions, [:engine_class] => :environment do |t, args|
+      engine_class = args.engine_class
+      root_path = engine_class.constantize.root
+
+      filename = File.join(root_path, *%w(config rbac.yml))
+      Ecm::UserArea::ImportDefaultPermissionsService.call(filename: filename)
+    end
   end
 end
