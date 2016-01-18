@@ -3,5 +3,5 @@ module Ecm
     class Engine < ::Rails::Engine
       isolate_namespace Ecm::UserArea
     end
-  end  
+  end
 end

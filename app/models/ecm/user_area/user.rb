@@ -12,5 +12,9 @@ module Ecm::UserArea
       #   find_by_email(email.downcase)
       # end
     end
+
+    def human
+      email
+    end
   end
 end

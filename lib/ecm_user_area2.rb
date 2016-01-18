@@ -1,5 +1,8 @@
 require 'authlogic'
 require 'haml-rails'
+require 'itsf_services'
+require 'rails_rad'
+require 'resource_renderer'
 require 'simple_form'
 
 require 'ecm/user_area/engine'

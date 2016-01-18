@@ -7,10 +7,6 @@ Add it to your Gemfile:
   # Gemfile
   gem 'ecm_user_area2'
 
-If you don't have devise installed, install it:
-
-  rails g devise:install
-
 Install:
 
   rails g ecm:user_area:install
@@ -22,7 +18,12 @@ Add Migrations and migrate:
 Add routes:
 
   # config/routes.rb
-  Ecm::UserArea::Routing.routes(self)
+  mount Ecm::UserArea::Engine, at: '/auth'
+
+Add current_user helpers to your application controller:
+
+  # app/controllers/application_controller.rb
+  include Controller::CurrentUserConcern
 
 = Usage
 

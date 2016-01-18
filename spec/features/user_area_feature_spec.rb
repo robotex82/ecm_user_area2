@@ -13,8 +13,8 @@ feature 'user area' do
       background do
         @user = FactoryGirl.create(:user)
         @user.confirm!
-        fill_in 'user[email]',    :with => @user.email
-        fill_in 'user[password]', :with => @user.password
+        fill_in 'user[email]',    with: @user.email
+        fill_in 'user[password]', with: @user.password
         find(:xpath, '//input[@type="submit"]').click
       end # background
 
@@ -25,8 +25,8 @@ feature 'user area' do
 
     context 'with wrong authentication' do
       background do
-        fill_in 'user[email]',    :with => 'chuck@example.com'
-        fill_in 'user[password]', :with => 'password'
+        fill_in 'user[email]',    with: 'chuck@example.com'
+        fill_in 'user[password]', with: 'password'
         find(:xpath, '//input[@type="submit"]').click
       end # background
 
@@ -41,7 +41,7 @@ feature 'user area' do
       I18n.locale = :en
       @user = FactoryGirl.create(:user)
       @user.confirm!
-      sign_in_with(@user.email, @user.password)    
+      sign_in_with(@user.email, @user.password)
       click_link('Sign out')
     end # background
 
@@ -50,4 +50,3 @@ feature 'user area' do
     end
   end # describe 'logout'
 end # feature
-

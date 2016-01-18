@@ -1,4 +1,8 @@
-# desc "Explaining what the task does"
-# task :ecm_user_area do
-#   # Task goes here
-# end
+namespace :ecm do
+  namespace :user_area do
+    desc 'Creates the default user with email/password: user@example.com/password'
+    task :create_default_user do
+      Ecm::UserArea::CreateDefaultUserService.call
+    end
+  end
+end

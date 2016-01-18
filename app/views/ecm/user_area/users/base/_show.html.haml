@@ -1,0 +1,2 @@
+- resource_class.attribute_names.delete_if { |name| [:id].include?(name.to_sym) }.each do |name|
+  = table.row name

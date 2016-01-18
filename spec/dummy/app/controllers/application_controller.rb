@@ -4,4 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper Ecm::UserAreaHelper
+
+  include Controller::CurrentUserConcern
 end

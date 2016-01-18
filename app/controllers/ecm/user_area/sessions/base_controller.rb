@@ -7,10 +7,8 @@ module Ecm::UserArea
     end
 
     def create
-      # @user = User.where(email: permitted_params[:email], password: permitted_params[:password]).first
-      # @session = session_class.new(@user)
       @session = session_class.new(permitted_params)
-      
+
       if @session.save
         redirect_to after_sign_in_url
       else
@@ -20,29 +18,33 @@ module Ecm::UserArea
 
     def destroy
       current_session.destroy
-      redirect_to new_session_path
+      redirect_to after_sign_out_url
     end
 
     def self.session_class
-      UserSession
+      fail 'please define self.session_class in your controller.'
     end
 
     private
 
     def sessions_path
-      send("#{session_class.name.demodulize.underscore.pluralize.gsub('/', '_')}_path".to_sym)
+      send("#{session_class.name.demodulize.underscore.pluralize.tr('/', '_')}_path".to_sym)
     end
 
     def new_session_path
-      send("new_#{session_class.demodulize.underscore.gsub('/', '_')}_path".to_sym)
+      send("new_#{session_class.demodulize.underscore.tr('/', '_')}_path".to_sym)
     end
 
     def after_sign_in_url
       main_app.root_path
     end
 
+    def after_sign_out_url
+      main_app.root_path
+    end
+
     def current_session
-      send("current_#{session_class.demodulize.underscore.gsub('/', '_')}".to_sym)
+      send("current_#{session_class.name.demodulize.underscore.tr('/', '_')}".to_sym)
     end
 
     def session_class
@@ -55,7 +57,7 @@ module Ecm::UserArea
 
     def permitted_params
       # raise 'Undefined abstract method permitted_params'
-      params.require(session_class.name.demodulize.underscore.gsub('/', '_')).permit(:email, :password)
+      params.require(session_class.name.demodulize.underscore.tr('/', '_')).permit(:email, :password)
     end
   end
 end
