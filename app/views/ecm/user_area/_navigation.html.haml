@@ -5,8 +5,8 @@
     = t('.not_signed_in')
 %ul.nav.navbar-nav
   - if user_signed_in?
-    %li= link_to t('ecm.user_area.actions.registration.edit'), ecm_user_area.edit_users_path
-    %li= link_to t('ecm.user_area.actions.sign_out'), ecm_user_area.user_sessions_path, method: :delete
+    %li= link_to t('.edit'), ecm_user_area.edit_users_path
+    %li= link_to t('.sign_out'), ecm_user_area.user_sessions_path, method: :delete
   - else
-    %li= link_to t('ecm.user_area.actions.sign_in'), ecm_user_area.new_user_session_path
-    %li= link_to t('ecm.user_area.actions.registration.new'), ecm_user_area.new_user_path
+    %li= link_to t('.sign_in'), ecm_user_area.new_user_session_path
+    %li= link_to t('.new'), ecm_user_area.new_user_path

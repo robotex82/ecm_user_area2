@@ -1,5 +1,6 @@
 = ECM User Area
 
+
 = Installation
 
 Add it to your Gemfile:
@@ -13,7 +14,11 @@ Install:
 
 Add Migrations and migrate:
 
-  rake ecm_user_area_engine:install:migrations && rake db:migrate
+  rake ecm_user_area:install:migrations && rake db:migrate
+
+Optionally, create a default user (user@example.com/password):
+
+  rake ecm_user_area_engine:install:migrations
 
 Add routes:
 
@@ -25,6 +30,7 @@ Add current_user helpers to your application controller:
   # app/controllers/application_controller.rb
   include Controller::CurrentUserConcern
 
+
 = Usage
 
 to secure a controller, add following before_action:
@@ -33,6 +39,21 @@ to secure a controller, add following before_action:
   before_action :authenticate_user!
 
 When you visit any controller actions, you will be redirected to the sign in form.
+
+
+= Adding helper methods
+
+  # app/controllers/application_controller.rb
+  include Controller::CurrentUserConcern
+
+This gives you #current_user_session, #current_user, user_signed_in?
+
+
+= Using the navigation helper
+
+  # app/controllers/application_controller.rb
+  helper Ecm::UserAreaHelper
+
 
 = Running Specs
 

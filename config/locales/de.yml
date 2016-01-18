@@ -1,3 +1,27 @@
 de:
+  ecm:
+    user_area:
+      navigation: &navigation
+        edit: Mein Account
+        new: Registrieren
+        not_signed_in: Nicht angemeldet
+        sign_in: Einloggen
+        sign_out: Ausloggen
+      navigation_dropdown: 
+        <<: *navigation
+      sessions:
+        base:
+          new:
+            back: Zurück
+            title: Einloggen
+      users:
+        base:
+          edit:
+            back: Zurück
+            show: Anzeigen
+            title: Mein Account
+          new:
+            back: Zurück
+            title: Regisitieren
   routes:
     users: benutzer

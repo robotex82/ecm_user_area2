@@ -1,15 +1,15 @@
 %ul.nav.navbar-nav
   %li.dropdown
     %a.dropdown-toggle{ href: '#', 'data-toggle': 'dropdown', role: 'button', 'aria-has-popup': true, 'aria-expanded': false }
-      -if 'user_signed_in?'
-        = 'current_user.email'
+      -if user_signed_in?
+        = current_user.email
       - else
         = t('.not_signed_in')
       %span.caret
     %ul.dropdown-menu
-      - if 'user_signed_in?'
-        %li= t('ecm.user_area.actions.registration.edit')
-        %li= t('ecm.user_area.actions.sign_out')
+      - if user_signed_in?
+        %li= link_to t('.edit'), ecm_user_area.edit_users_path
+        %li= link_to t('.sign_out'), ecm_user_area.user_sessions_path, method: :delete
       - else
-        %li= t('ecm.user_area.actions.sign_in')
-        %li= t('ecm.user_area.actions.registration.new')
+        %li= link_to t('.sign_in'), ecm_user_area.new_user_session_path
+        %li= link_to t('.new'), ecm_user_area.new_user_path

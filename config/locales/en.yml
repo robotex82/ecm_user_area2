@@ -1,3 +1,23 @@
 en:
+  ecm:
+    user_area:
+      navigation: &navigation
+        edit: My Profile
+        new: Sign up
+        not_signed_in: Not signed in
+        sign_in: Sign in
+        sign_out: Sign out
+      navigation_dropdown: 
+        <<: *navigation
+      sessions:
+        base:
+          new:
+            back: Back
+            title: Sign in
+      users:
+        base:
+          new:
+            back: Back
+            title: Sign up
   routes:
     users: users
