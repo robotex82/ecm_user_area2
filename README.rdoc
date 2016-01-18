@@ -18,8 +18,8 @@ Add Migrations and migrate:
 
 Optionally, create a default user (user@example.com/password):
 
-  rake ecm_user_area_engine:install:migrations
-
+  rake ecm:user_area:create_default_user
+  
 Add routes:
 
   # config/routes.rb
