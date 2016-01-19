@@ -23,5 +23,13 @@ de:
           new:
             back: Zurück
             title: Regisitieren
+  helpers:
+    submit:
+      user_session:
+        create: 'Einloggen'
+  messages:
+    failures:
+      ecm_user_area:
+        authentication_failed: 'Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.'
   routes:
     users: benutzer

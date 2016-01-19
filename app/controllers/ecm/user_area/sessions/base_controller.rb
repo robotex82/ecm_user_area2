@@ -4,6 +4,9 @@ module Ecm::UserArea
     include Controller::ResourceInflectionsConcern
     include Controller::ResourceUrlsConcern
     include Controller::RestActionsConcern
+    include Controller::RedirectBackConcern
+
+    skip_before_action :authenticate_user!, only: [:new, :create]
 
     def new
       @session = initialize_resource
@@ -14,7 +17,8 @@ module Ecm::UserArea
       @session = resource_class.new(permitted_params)
 
       if @session.save
-        redirect_to after_sign_in_url
+        redirect_back_or(after_sign_in_url)
+        return
       else
         render action: :new
       end
@@ -32,12 +36,10 @@ module Ecm::UserArea
     private
 
     def after_sign_in_url
-      main_app.root_path(locale: I18n.locale)
       "/#{I18n.locale}"
     end
 
     def after_sign_out_url
-      main_app.root_path(locale: I18n.locale)
       "/#{I18n.locale}"
     end
 

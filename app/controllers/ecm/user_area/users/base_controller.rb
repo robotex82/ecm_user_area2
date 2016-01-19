@@ -5,6 +5,8 @@ module Ecm::UserArea
     include Controller::ResourceUrlsConcern
     include Controller::RestActionsConcern
 
+    skip_before_action :authenticate_user!, only: [:new, :create]
+
     def create
       @resource = resource_class.new(permitted_params)
       @resource.save
