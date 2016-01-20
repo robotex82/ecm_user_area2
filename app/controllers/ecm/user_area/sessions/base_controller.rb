@@ -17,6 +17,7 @@ module Ecm::UserArea
       @session = resource_class.new(permitted_params)
 
       if @session.save
+        flash[:notice] = I18n.t('messages.success.ecm_user_area.signed_in') unless request.xhr?
         redirect_back_or(after_sign_in_url)
         return
       else
@@ -26,6 +27,7 @@ module Ecm::UserArea
 
     def destroy
       current_session.destroy
+      flash[:notice] = I18n.t('messages.success.ecm_user_area.signed_out') unless request.xhr?
       redirect_to after_sign_out_url
     end
 

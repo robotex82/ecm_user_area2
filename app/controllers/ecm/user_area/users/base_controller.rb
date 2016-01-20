@@ -4,19 +4,27 @@ module Ecm::UserArea
     include Controller::ResourceInflectionsConcern
     include Controller::ResourceUrlsConcern
     include Controller::RestActionsConcern
+    include Controller::RedirectBackConcern
 
-    skip_before_action :authenticate_user!, only: [:new, :create]
+    before_action :authenticate_user!, except: [:new, :create]
 
     def create
       @resource = resource_class.new(permitted_params)
-      @resource.save
+      flash[:notice] = I18n.t('messages.confirmations.ecm_user_area.send_instructions') if @resource.save && !request.xhr?
       respond_with @resource, location: after_registration_url
+    end
+
+
+    def update
+      @resource = load_resource
+      @resource.update_attributes(permitted_params)
+      respond_with @resource, location: edit_user_path
     end
 
     private
 
     def after_registration_url
-      main_app.root_path
+      new_user_session_path
     end
 
     def load_resource

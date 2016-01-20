@@ -22,12 +22,21 @@ de:
             title: Mein Account
           new:
             back: Zurück
-            title: Regisitieren
+            title: Registrieren
   helpers:
     submit:
       user_session:
         create: 'Einloggen'
+      user:
+        create: 'Registrieren'
   messages:
+    confirmations:
+      ecm_user_area:
+        send_instructions: 'Sie erhalten in wenigen Minuten eine E-Mail, mit der Sie Ihre Registrierung bestätigen können.'
+    success:
+      ecm_user_area:
+        signed_in: 'Erfolgreich angemeldet.'
+        signed_out: 'Erfolgreich abgemeldet.'
     failures:
       ecm_user_area:
         authentication_failed: 'Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.'
