@@ -17,7 +17,14 @@ module Ecm::UserArea
 
     def update
       @resource = load_resource
-      @resource.update_attributes(permitted_params)
+      # do not assign password/confirmation if they are empty
+      @resource.attributes = permitted_params.delete_if { |k, v| v.empty? }
+
+      if @resource.save && (@resource.previous_changes.keys.map(&:to_sym) & [:email, :crypted_password]).any?
+        current_session(:user).destroy
+        redirect_to(new_user_session_path)
+        return 
+      end
       respond_with @resource, location: edit_user_path
     end
 

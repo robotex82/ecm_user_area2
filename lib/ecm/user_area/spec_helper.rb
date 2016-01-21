@@ -12,7 +12,7 @@ module Ecm::UserArea
     end
 
     def sign_in(user)
-      visit '/de/auth/user_sessions/new'
+      visit '/de/auth/user_session/new'
 
       within('#new_user_session') do 
         fill_in 'user_session[email]', with: user.email

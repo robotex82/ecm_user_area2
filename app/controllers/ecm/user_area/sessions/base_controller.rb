@@ -26,7 +26,7 @@ module Ecm::UserArea
     end
 
     def destroy
-      current_session.destroy
+      current_session(resource_class.name.demodulize.underscore.to_sym).destroy
       flash[:notice] = I18n.t('messages.success.ecm_user_area.signed_out') unless request.xhr?
       redirect_to after_sign_out_url
     end
@@ -39,14 +39,6 @@ module Ecm::UserArea
 
     def after_sign_in_url
       "/#{I18n.locale}"
-    end
-
-    def after_sign_out_url
-      "/#{I18n.locale}"
-    end
-
-    def current_session
-      send("current_#{resource_class.name.demodulize.underscore.tr('/', '_')}".to_sym)
     end
 
     def permitted_params

@@ -29,6 +29,7 @@ de:
         create: 'Einloggen'
       user:
         create: 'Registrieren'
+        update: 'Aktualisieren'
   messages:
     confirmations:
       ecm_user_area:

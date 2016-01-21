@@ -8,8 +8,8 @@
       %span.caret
     %ul.dropdown-menu
       - if user_signed_in?
-        %li= link_to t('.edit'), ecm_user_area.edit_users_path
-        %li= link_to t('.sign_out'), ecm_user_area.user_sessions_path, method: :delete
+        %li= link_to t('.edit'), ecm_user_area.edit_user_path
+        %li= link_to t('.sign_out'), ecm_user_area.user_session_path, method: :delete
       - else
         %li= link_to t('.sign_in'), ecm_user_area.new_user_session_path
         %li= link_to t('.new'), ecm_user_area.new_user_path

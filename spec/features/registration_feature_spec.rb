@@ -20,7 +20,7 @@ feature 'User Area -> Registration' do
 
       it 'should redirect to root' do
         sign_up(@user_attributes)
-        expect(page.current_path).to eq('/de/auth/user_sessions/new')
+        expect(page.current_path).to eq('/de/auth/user_session/new')
       end
 
       it 'should show a success message' do
@@ -33,20 +33,43 @@ feature 'User Area -> Registration' do
   describe 'editing a registration' do
     context 'when signed in' do
       background do
-        user = Ecm::UserArea::CreateDefaultUserService.call.user
-        sign_in(user)
+        @user = Ecm::UserArea::CreateDefaultUserService.call.user
+        sign_in(@user)
       end
 
       it 'should allow access' do
         visit '/de/auth/user/edit'
         page.current_path.should eq('/de/auth/user/edit')
       end
+
+      context 'changing email' do
+        background do
+          visit '/de/auth/user/edit'
+        end
+
+        it do
+          expect {
+            fill_in 'user[email]', with: 'new@example.com'
+            click_on submit(:user, :update)
+          }.to change {
+            @user.reload
+            @user.email
+          }.from(@user.email).to('new@example.com')
+        end
+
+        it 'should sign out' do
+          fill_in 'user[email]', with: 'new@example.com'
+          click_on submit(:user, :update)
+
+          expect(page.current_path).to eq('/de/auth/user_session/new')
+        end
+      end
     end
 
     context 'when not signed in' do
       it 'should redirect to the sign in page' do
         visit '/de/auth/user/edit'
-        page.current_path.should eq('/de/auth/user_sessions/new')
+        page.current_path.should eq('/de/auth/user_session/new')
       end
     end
   end
