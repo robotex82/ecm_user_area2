@@ -45,7 +45,8 @@ module Controller
     end
 
     def current_session(type)
-      send("current_#{type}_session".to_sym)
+      type.to_s << '_session' unless type.to_s.end_with?('_session')
+      send("current_#{type}".to_sym)
     end
   end
 end
