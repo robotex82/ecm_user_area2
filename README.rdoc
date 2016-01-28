@@ -23,6 +23,7 @@ Add routes:
 Add current_user helpers to your application controller:
 
   # app/controllers/application_controller.rb
+  include Controller::RedirectBackConcern
   include Controller::CurrentUserConcern
 
 = Usage
