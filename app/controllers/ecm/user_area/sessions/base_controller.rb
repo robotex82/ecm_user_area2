@@ -1,63 +1,48 @@
 module Ecm::UserArea
   class Sessions::BaseController < ApplicationController
-    helper_method :sessions_path
+    include Controller::ResourceConcern
+    include Controller::ResourceInflectionsConcern
+    include Controller::ResourceUrlsConcern
+    include Controller::RestActionsConcern
+    include Controller::RedirectBackConcern
+
+    skip_before_action :authenticate_user!, only: [:new, :create]
 
     def new
-      @session = initialize_session
+      @session = initialize_resource
+      respond_with @session
     end
 
     def create
-      @session = session_class.new(permitted_params)
+      @session = resource_class.new(permitted_params)
 
       if @session.save
-        redirect_to after_sign_in_url
+        flash[:notice] = I18n.t('messages.success.ecm_user_area.signed_in') unless request.xhr?
+        redirect_back_or(after_sign_in_url)
+        return
       else
         render action: :new
       end
     end
 
     def destroy
-      current_session.destroy
+      current_session(resource_class.name.demodulize.underscore.to_sym).destroy
+      flash[:notice] = I18n.t('messages.success.ecm_user_area.signed_out') unless request.xhr?
       redirect_to after_sign_out_url
     end
 
-    def self.session_class
+    def self.resource_class
       fail 'please define self.session_class in your controller.'
     end
 
     private
 
-    def sessions_path
-      send("#{session_class.name.demodulize.underscore.pluralize.tr('/', '_')}_path".to_sym)
-    end
-
-    def new_session_path
-      send("new_#{session_class.demodulize.underscore.tr('/', '_')}_path".to_sym)
-    end
-
     def after_sign_in_url
-      main_app.root_path
-    end
-
-    def after_sign_out_url
-      main_app.root_path
-    end
-
-    def current_session
-      send("current_#{session_class.name.demodulize.underscore.tr('/', '_')}".to_sym)
-    end
-
-    def session_class
-      self.class.session_class
-    end
-
-    def initialize_session
-      session_class.new
+      "/#{I18n.locale}"
     end
 
     def permitted_params
-      # raise 'Undefined abstract method permitted_params'
-      params.require(session_class.name.demodulize.underscore.tr('/', '_')).permit(:email, :password)
+      params.require(resource_class.name.demodulize.underscore.tr('/', '_')).permit(:email, :password)
     end
   end
 end

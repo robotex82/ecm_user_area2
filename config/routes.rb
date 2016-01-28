@@ -1,11 +1,5 @@
 Ecm::UserArea::Engine.routes.draw do
-  resources :users, only: [:new, :create] do
-    get  :edit,   on: :collection
-    get  :show,   on: :collection
-    post :update, on: :collection
-  end
+  resource :user, except: [:index, :destroy, :show]
 
-  resources :user_sessions, only: [:new, :create] do
-    delete :index, on: :collection, action: :destroy
-  end
+  resource :user_session, only: [:new, :create, :destroy]
 end
