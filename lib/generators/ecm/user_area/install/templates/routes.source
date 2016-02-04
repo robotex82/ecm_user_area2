@@ -1,0 +1,7 @@
+
+  # Fixes symbolized_keys bug
+  mount Ecm::UserArea::Engine, at: '/auth'
+
+  localized do
+    mount Ecm::UserArea::Engine, at: '/auth'
+  end
