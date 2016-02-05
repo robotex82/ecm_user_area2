@@ -1,5 +1,5 @@
 module Ecm::UserArea
-  class Sessions::BaseController < ApplicationController
+  class Sessions::BaseController < Ecm::UserArea::Configuration.base_controller.constantize
     include Controller::ResourceConcern
     include Controller::ResourceInflectionsConcern
     include Controller::ResourceUrlsConcern

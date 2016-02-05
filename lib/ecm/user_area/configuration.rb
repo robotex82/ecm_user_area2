@@ -10,6 +10,7 @@ module Ecm
       end
 
       mattr_accessor(:disable_registrations) { false }
+      mattr_accessor(:base_controller) { 'FrontendController' }
     end
   end
 end
