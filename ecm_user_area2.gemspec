@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails_rad'
   s.add_dependency 'simple_form'
 
-
   s.add_development_dependency 'byebug'
   s.add_development_dependency 'web-console', '~> 2.0'
 

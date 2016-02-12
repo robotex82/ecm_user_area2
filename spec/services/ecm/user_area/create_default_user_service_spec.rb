@@ -2,12 +2,12 @@ require 'rails_helper'
 
 module Ecm::UserArea
   describe CreateDefaultUserService do
-    it { expect(subject).to be_a(Itsf::Services::V2::Service::Base) } 
+    it { expect(subject).to be_a(Itsf::Services::V2::Service::Base) }
 
     it 'should create a user' do
-      expect {
+      expect do
         CreateDefaultUserService.call
-      }.to change {
+      end.to change {
         Ecm::UserArea::User.count
       }.from(0).to(1)
     end
@@ -26,10 +26,10 @@ module Ecm::UserArea
         create(:ecm_user_area_user, email: 'user@example.com')
       end
 
-      it 'should not change the user count'  do
-      expect {
-        CreateDefaultUserService.call
-      }.to_not change(Ecm::UserArea::User, :count)
+      it 'should not change the user count' do
+        expect do
+          CreateDefaultUserService.call
+        end.to_not change(Ecm::UserArea::User, :count)
       end
     end
   end

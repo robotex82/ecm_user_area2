@@ -1,9 +1,11 @@
 en:
+  classes:
+    ecm/user_area/create_default_user_service: 'Create Default User Service'
   ecm:
     user_area:
       navigation: &navigation
-        edit: My Profile
-        new: Sign up
+        edit: My Account
+        new: Register
         not_signed_in: Not signed in
         sign_in: Sign in
         sign_out: Sign out
@@ -16,8 +18,30 @@ en:
             title: Sign in
       users:
         base:
+          edit:
+            back: Back
+            show: Show
+            title: My Account
           new:
             back: Back
-            title: Sign up
+            title: Register
+  helpers:
+    submit:
+      user_session:
+        create: 'Sign in'
+      user:
+        create: 'Create Account'
+        update: 'Update Account'
+  messages:
+    confirmations:
+      ecm_user_area:
+        send_instructions: 'You will receive an email with instructions for how to confirm your email address in a few minutes.'
+    success:
+      ecm_user_area:
+        signed_in: 'Signed in.'
+        signed_out: 'Signed out.'
+    failures:
+      ecm_user_area:
+        authentication_failed: 'You need to sign in or sign up before continuing.'
   routes:
     users: users

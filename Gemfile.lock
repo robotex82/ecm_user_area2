@@ -11,22 +11,10 @@ PATH
       resource_renderer
       simple_form
 
-PATH
-  remote: ~/rails/gems/rails_rad
-  specs:
-    rails_rad (1.0.0)
-      rails (>= 4.0)
-      responders
-
-PATH
-  remote: ~/rails/gems/resource_renderer
-  specs:
-    resource_renderer (1.0.0)
-      rails (>= 4.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
+    abstract_method (1.2.1)
     actionmailer (4.2.5)
       actionpack (= 4.2.5)
       actionview (= 4.2.5)
@@ -204,6 +192,10 @@ GEM
       rails
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails_rad (1.1.0)
+      abstract_method
+      rails (>= 4.0)
+      responders
     railties (4.2.5)
       actionpack (= 4.2.5)
       activesupport (= 4.2.5)
@@ -216,6 +208,9 @@ GEM
       ffi (>= 0.5.0)
     ref (2.0.0)
     request_store (1.3.0)
+    resource_renderer (1.1.0)
+      itsf_services
+      rails (>= 4.0)
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
     route_translator (4.1.0)
@@ -308,8 +303,6 @@ DEPENDENCIES
   jquery-rails
   less-rails
   rails-dummy
-  rails_rad!
-  resource_renderer!
   route_translator
   rspec-rails
   rubocop

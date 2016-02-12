@@ -15,7 +15,7 @@ feature 'User Area -> Registration' do
       end
 
       it 'should create a user' do
-        expect{ sign_up(@user_attributes) }.to change{ Ecm::UserArea::User.count }.from(0).to(1)
+        expect { sign_up(@user_attributes) }.to change { Ecm::UserArea::User.count }.from(0).to(1)
       end
 
       it 'should redirect to root' do
@@ -48,10 +48,10 @@ feature 'User Area -> Registration' do
         end
 
         it do
-          expect {
+          expect do
             fill_in 'user[email]', with: 'new@example.com'
             click_on submit(:user, :update)
-          }.to change {
+          end.to change {
             @user.reload
             @user.email
           }.from(@user.email).to('new@example.com')
