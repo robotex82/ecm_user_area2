@@ -5,5 +5,8 @@ module Ecm::UserArea
     # attr_accessor :email, :password
 
     # find_by_login_method :find_by_downcase_email
+
+    params_key "#{self.name.demodulize.tableize.gsub('_sessions', '')}_api_key"
+    single_access_allowed_request_types = :json
   end
 end
