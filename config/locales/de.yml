@@ -1,6 +1,16 @@
 de:
+  activerecord:
+    attributes:
+      ecm/user_area/user:
+        active: Aktiv
+        approved: Genehmigt
+        confirmed: Bestätigt
+    models:
+      ecm/user_area/user:
+        one: Benutzer
+        other: Benutzer
   classes:
-    ecm/user_area/create_default_user_service: 'Dienst zum Erstellen eines Standard-Users'
+    ecm/user_area/create_default_user_service: 'Dienst zum Erstellen eines Standard-Benutzers'
   ecm:
     user_area:
       navigation: &navigation
