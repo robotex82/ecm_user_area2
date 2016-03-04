@@ -13,6 +13,21 @@ module Ecm::UserArea
       # end
     end
 
+    scope :for_autocomplete, ->(matcher) { where("LOWER(email) LIKE ?", "%#{matcher.downcase}%") }
+
+    def as_json(options = {})
+      options.reverse_merge!(style: :default)
+
+      style = options.delete(:style)
+
+      case style
+      when :autocomplete
+        { value: id, title: email, subtitle: self.inspect }
+      else
+        super
+      end
+    end
+
     def human
       email
     end
