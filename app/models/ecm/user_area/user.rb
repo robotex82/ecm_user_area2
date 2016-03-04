@@ -22,7 +22,7 @@ module Ecm::UserArea
 
       case style
       when :autocomplete
-        { value: id, title: email, subtitle: self.inspect }
+        { value: id, title: human, subtitle: self.inspect }
       else
         super
       end
