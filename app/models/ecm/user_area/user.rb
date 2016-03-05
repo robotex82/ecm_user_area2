@@ -23,7 +23,6 @@ module Ecm::UserArea
       # end
     end
 
-
     def as_json(options = {})
       options.reverse_merge!(style: :default)
 
