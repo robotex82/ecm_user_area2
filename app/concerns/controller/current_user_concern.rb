@@ -15,7 +15,7 @@ module Controller
     def authenticate_user!
       unless user_signed_in?
         store_location
-        redirect_to(user_authentication_failed_path, notice: t('messages.failures.ecm_user_area.authentication_failed'))
+        handle_authentication_failure
         return false
       end
       true
@@ -48,6 +48,13 @@ module Controller
       type = type.to_s
       type << '_session' unless type.end_with?('_session')
       send("current_#{type}".to_sym)
+    end
+
+    def handle_authentication_failure
+      respond_to do |format|
+        format.json { render json: { error: :forbidden }, status: :forbidden }
+        format.html { redirect_to(user_authentication_failed_path, notice: t('messages.failures.ecm_user_area.authentication_failed')) }
+      end
     end
   end
 end
