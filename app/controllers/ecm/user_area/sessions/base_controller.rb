@@ -18,7 +18,11 @@ module Ecm::UserArea
 
       if @session.save
         flash[:notice] = I18n.t('messages.success.ecm_user_area.signed_in') unless request.xhr?
-        redirect_back_or(after_sign_in_url)
+        if Configuration.force_after_sign_in_url
+          redirect_to(after_sign_in_url)
+        else
+          redirect_back_or(after_sign_in_url)
+        end
         return
       else
         render action: :new
