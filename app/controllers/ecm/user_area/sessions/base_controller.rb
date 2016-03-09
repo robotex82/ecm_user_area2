@@ -38,7 +38,7 @@ module Ecm::UserArea
     private
 
     def after_sign_in_url
-      "/#{I18n.locale}"
+      "/#{I18n.locale}" unless defined?(super)
     end
 
     def permitted_params
