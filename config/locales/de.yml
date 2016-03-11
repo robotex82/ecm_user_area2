@@ -54,4 +54,6 @@ de:
       ecm_user_area:
         authentication_failed: 'Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.'
   routes:
+    mount:
+      ecm_user_area: '/auth'
     users: benutzer

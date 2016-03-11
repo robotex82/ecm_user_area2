@@ -44,4 +44,6 @@ en:
       ecm_user_area:
         authentication_failed: 'You need to sign in or sign up before continuing.'
   routes:
+    mount:
+      ecm_user_area: '/auth'
     users: users
