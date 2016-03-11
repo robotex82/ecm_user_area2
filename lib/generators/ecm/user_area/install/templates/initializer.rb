@@ -14,4 +14,16 @@ Ecm::UserArea.configure do |config|
   # Default: config.force_after_sign_in_url = false
   #
   config.force_after_sign_in_url = true
+
+  # This is the block, that will be passed to the acts_as_authentic call
+  # in the user model.
+  # 
+  # Default: config.acts_as_authentic_options = ->(c) do
+  #            config.crypto_provider = Authlogic::CryptoProviders::BCrypt
+  #            config.login_field = :email
+  #          end
+  config.acts_as_authentic_options = ->(c) do
+    c.crypto_provider = Authlogic::CryptoProviders::BCrypt
+    c.login_field     = :email
+  end
 end
