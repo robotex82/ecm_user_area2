@@ -12,13 +12,12 @@ module Ecm
       mattr_accessor(:disable_registrations) { false }
       mattr_accessor(:base_controller) { 'FrontendController' }
       mattr_accessor(:force_after_sign_in_url) { false }
-      mattr_accessor(:acts_as_authentic_options)
-      # mattr_accessor(:acts_as_authentic_options) do
-      #   ->(config) do
-      #     config.crypto_provider = Authlogic::CryptoProviders::BCrypt
-      #     config.login_field     = :email
-      #   end
-      # end
+      mattr_accessor(:acts_as_authentic_options) do
+        ->(config) do
+          config.crypto_provider = Authlogic::CryptoProviders::BCrypt
+          config.login_field     = :email
+        end
+      end
     end
   end
 end
