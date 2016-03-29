@@ -6,7 +6,7 @@ module Ecm::UserArea
     include Controller::RestActionsConcern
     include Controller::RedirectBackConcern
 
-    skip_before_action :authenticate_user!, only: [:new, :create]
+    skip_before_action :authenticate_user!, only: [:new, :create], raise: false
 
     def new
       @session = initialize_resource
