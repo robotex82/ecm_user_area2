@@ -8,5 +8,6 @@ module Ecm::UserArea
 
     params_key "#{self.name.demodulize.tableize.gsub('_sessions', '')}_api_key"
     single_access_allowed_request_types = :json
+    generalize_credentials_error_messages true
   end
 end
