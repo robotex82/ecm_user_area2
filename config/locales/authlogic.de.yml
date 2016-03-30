@@ -17,7 +17,7 @@ de:
     models:
       user_session: User Session
     attributes:
-      user_session:
+      ecm/user_area/user_session:
         login: Benutzername
         email: E-Mail
         password: Passwort
