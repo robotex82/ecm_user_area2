@@ -11,6 +11,7 @@ module Ecm
 
       mattr_accessor(:disable_registrations) { false }
       mattr_accessor(:base_controller) { 'FrontendController' }
+      mattr_accessor(:base_mailer) { 'ApplicationMailer' }
       mattr_accessor(:force_after_sign_in_url) { false }
       mattr_accessor(:acts_as_authentic_options) do
         ->(config) do

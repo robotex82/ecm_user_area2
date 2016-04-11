@@ -7,6 +7,12 @@ Ecm::UserArea.configure do |config|
   #
   config.base_controller = 'FrontendController'
 
+  # Set the base mailer
+  #
+  # Default: config.base_controller = 'ApplicationMailer'
+  #
+  config.base_controller = 'ApplicationMailer'
+
   # Settings this to true forces the after_sign_in_url after sign in.
   # If set to false, redirect to previous location will happen if 
   # existent.

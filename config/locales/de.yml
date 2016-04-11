@@ -1,6 +1,8 @@
 de:
   activerecord:
     attributes:
+      ecm/user_area/user_password:
+        email: E-Mail
       ecm/user_area/user:
         active: Aktiv
         approved: Genehmigt
@@ -9,6 +11,9 @@ de:
         password: Passwort
         password_confirmation: Passwort wiederholen
     models:
+      ecm/user_area/user_password:
+        one: Passwort
+        other: Passwörter
       ecm/user_area/user:
         one: Benutzer
         other: Benutzer

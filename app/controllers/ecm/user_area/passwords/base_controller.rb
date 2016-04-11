@@ -5,6 +5,8 @@ module Ecm::UserArea
     include Controller::ResourceUrlsConcern
     include Controller::RestActionsConcern
     include Controller::RedirectBackConcern
+    
+    skip_before_action :authenticate_user!
 
     private
 
