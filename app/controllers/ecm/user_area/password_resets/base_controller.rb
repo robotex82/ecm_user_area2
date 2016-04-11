@@ -1,5 +1,5 @@
 module Ecm::UserArea
-  class Passwords::BaseController < Ecm::UserArea::Configuration.base_controller.constantize
+  class PasswordResets::BaseController < Ecm::UserArea::Configuration.base_controller.constantize
     include Controller::ResourceConcern
     include Controller::ResourceInflectionsConcern
     include Controller::ResourceUrlsConcern
@@ -10,8 +10,16 @@ module Ecm::UserArea
 
     private
 
+    def load_resource
+      User.find_using_perishable_token(params[:token])
+    end
+
     def permitted_params
-      params.require(resource_class.name.demodulize.underscore.to_sym).permit(:email)
+      params.require(:user).permit(:password, :password_confirmation)
+    end
+
+    def after_update_location
+      new_user_session_path
     end
   end
 end

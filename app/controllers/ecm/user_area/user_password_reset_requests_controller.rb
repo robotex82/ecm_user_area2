@@ -1,7 +1,7 @@
 module Ecm::UserArea
-  class UserPasswordsController < Passwords::BaseController
+  class UserPasswordResetRequestsController < PasswordResetRequests::BaseController
     def self.resource_class
-      UserPassword
+      UserPasswordResetRequest
     end
 
     private

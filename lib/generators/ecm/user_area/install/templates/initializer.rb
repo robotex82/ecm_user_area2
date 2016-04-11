@@ -9,9 +9,9 @@ Ecm::UserArea.configure do |config|
 
   # Set the base mailer
   #
-  # Default: config.base_controller = 'ApplicationMailer'
+  # Default: config.base_mailer = 'ApplicationMailer'
   #
-  config.base_controller = 'ApplicationMailer'
+  config.base_mailer = 'ApplicationMailer'
 
   # Settings this to true forces the after_sign_in_url after sign in.
   # If set to false, redirect to previous location will happen if 
@@ -28,8 +28,21 @@ Ecm::UserArea.configure do |config|
   #            config.crypto_provider = Authlogic::CryptoProviders::BCrypt
   #            config.login_field = :email
   #          end
+  #          
   config.acts_as_authentic_options = ->(c) do
     c.crypto_provider = Authlogic::CryptoProviders::BCrypt
     c.login_field     = :email
   end
+
+  # Application name for mail delivery.
+  # 
+  # Default: config.application_name = Rails.application.class.name.deconstantize
+  # 
+  config.application_name = Rails.application.class.name.deconstantize
+
+  # E-Mail sender address for password reset emails.
+  # 
+  # Default: config.email_from_address = 'info@example.com'
+  # 
+  config.email_from_address = 'info@example.com'
 end

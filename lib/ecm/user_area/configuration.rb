@@ -19,6 +19,8 @@ module Ecm
           config.login_field     = :email
         end
       end
+      mattr_accessor(:application_name) { Rails.application.class.name.deconstantize }
+      mattr_accessor(:email_from_address) { 'info@example.com' }
     end
   end
 end
