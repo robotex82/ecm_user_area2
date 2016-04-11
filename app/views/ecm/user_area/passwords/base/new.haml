@@ -2,16 +2,14 @@
   %div.panel-heading
     %h1= t('.title', inflections)
   %div.panel-body
-    = simple_form_for(@session, url: user_session_path) do |f|
+    = simple_form_for(@resource, url: user_password_path) do |f|
       = render partial: 'form_errors', locals: { resource: f.object }
       = render 'form', form: f
       = f.button :submit, class: 'btn btn-success'
-      = link_to new_user_password_path do
-        = t(".password.new", resource_name: Ecm::UserArea::UserPassword.model_name.human)
   %div.panel-footer
 
 .well.well-sm
   .btn-container-right
-    = link_to main_app.root_path, class: 'btn btn-default btn-responsive' do
+    = link_to new_user_session_path, class: 'btn btn-default btn-responsive' do
       %span.glyphicon.glyphicon-arrow-left
       %span.btn-text= t('.back')

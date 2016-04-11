@@ -24,11 +24,18 @@ de:
         sign_out: Ausloggen
       navigation_dropdown: 
         <<: *navigation
+      passwords:
+        base:
+          new:
+            back: Zurück
+            title: 'Passwort zurücksetzen'
       sessions:
         base:
           new:
             back: Zurück
             title: Einloggen
+            password:
+              new: 'Passwort vergessen'
       users:
         base:
           edit:

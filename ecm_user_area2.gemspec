@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = 'ECM User Area.'
   s.description = 'ECM User Area.'
 
-  s.files = Dir['{app,config,db,lib}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'README.rdoc']
+  s.files = Dir['{app,config,db,lib}/**/*', 'spec/factories/**/*'] + ['MIT-LICENSE', 'Rakefile', 'README.rdoc']
   s.test_files = Dir['spec/**/*']
 
   s.add_dependency 'rails', '>= 4.0'

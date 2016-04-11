@@ -13,7 +13,7 @@ Ecm::UserArea.configure do |config|
   # 
   # Default: config.force_after_sign_in_url = false
   #
-  config.force_after_sign_in_url = true
+  config.force_after_sign_in_url = false
 
   # This is the block, that will be passed to the acts_as_authentic call
   # in the user model.
