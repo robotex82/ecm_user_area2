@@ -5,17 +5,21 @@ module Ecm
       extend ActiveModel::Callbacks
       include ActiveModel::Validations::Callbacks
 
-      # define_model_callbacks :validation
-
       attr_accessor :user, :email, :host
+
+      def self.call(attributes)
+        new(attributes).save
+      end
 
       def self.i18n_scope
         :activerecord
       end
 
-      validates :email, :user, :host, presence: true
+      validates :email, :host, presence: true
+      validates :user, presence: true
 
       before_validation :load_user
+      after_validation :delete_error_on_user, if: ->() { errors.get(:email).present? }
 
       def save
         return unless valid?
@@ -28,6 +32,10 @@ module Ecm
 
       def load_user
         self.user = Ecm::UserArea::User.where(email: self.email).first
+      end
+
+      def delete_error_on_user
+        errors.delete(:user)
       end
     end
   end
