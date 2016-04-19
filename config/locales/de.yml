@@ -3,6 +3,7 @@ de:
     attributes:
       ecm/user_area/user_password_reset_request:
         email: E-Mail
+        user: Benutzer
       ecm/user_area/user:
         active: Aktiv
         approved: Genehmigt
@@ -17,6 +18,12 @@ de:
       ecm/user_area/user:
         one: Benutzer
         other: Benutzer
+    errors:
+      models:
+        ecm/user_area/user_password_reset_request:
+          attributes:
+            user:
+              blank: 'nicht bekannt'
   classes:
     ecm/user_area/create_default_user_service: 'Dienst zum Erstellen eines Standard-Benutzers'
   ecm:
@@ -41,6 +48,10 @@ de:
             title: 'Neues Passwort für %{resource} setzen'
       sessions:
         base:
+          form_errors:
+            errors:
+              template:
+                header: 'Login fehlgeschlagen'
           new:
             back: Zurück
             title: Einloggen
@@ -59,8 +70,19 @@ de:
             back: Zurück
             destroy: 'Löschen'
             edit: 'Bearbeiten'
+  flash:
+    ecm:
+      user_area:
+        user_password_resets:
+          update:
+            notice: 'Passwort aktualisiert'
+        user_password_reset_requests:
+          create:
+            notice: 'Anweisungen zum zurücksetzen des Passworts versandt'
   helpers:
     submit:
+      user_password_reset_request:
+        create: 'Weiter'
       user_session:
         create: 'Einloggen'
       user:
