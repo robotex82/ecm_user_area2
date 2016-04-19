@@ -6,9 +6,10 @@
       %h1= @resource.human
     .col-xs-4
       #page-actions.btn-container-right
-        = link_to(resource_path(@resource), method: :delete, class: 'btn btn-danger btn-responsive', 'data-confirm': I18n.t('confirmations.delete')) do
-          %span.glyphicon.glyphicon-fire
-          %span.btn-text= t('.destroy')
+        - if Ecm::UserArea::Configuration.allow_users_to_destroy_self
+          = link_to(resource_path(@resource), method: :delete, class: 'btn btn-danger btn-responsive', 'data-confirm': I18n.t('confirmations.delete')) do
+            %span.glyphicon.glyphicon-fire
+            %span.btn-text= t('.destroy')
 
 .panel.panel-default.panel-with-actions
   %table.table.table-striped.table-condensed.table-hover

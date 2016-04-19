@@ -24,11 +24,18 @@ en:
         sign_out: Sign out
       navigation_dropdown: 
         <<: *navigation
+      password_reset_requests:
+        base:
+          new:
+            back: Back
+            title: 'Reset password'
       sessions:
         base:
           new:
             back: Back
             title: Sign in
+            password:
+              new: Forgot password
       users:
         base:
           edit:
@@ -49,6 +56,9 @@ en:
       user:
         create: 'Create Account'
         update: 'Update Account'
+  locales:
+    de: Deutsch
+    en: English
   messages:
     confirmations:
       ecm_user_area:

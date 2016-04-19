@@ -6,7 +6,7 @@ module Ecm::UserArea
     include Controller::RestActionsConcern
     include Controller::RedirectBackConcern
     
-    skip_before_action :authenticate_user!
+    skip_before_action :authenticate_user!, raise: false
 
     def create
       @resource = resource_class.new(permitted_params)

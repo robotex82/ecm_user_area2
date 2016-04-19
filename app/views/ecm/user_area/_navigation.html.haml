@@ -9,4 +9,5 @@
     %li= link_to t('.sign_out'), ecm_user_area.user_session_path, method: :delete
   - else
     %li= link_to t('.sign_in'), ecm_user_area.new_user_session_path
-    %li= link_to t('.new'), ecm_user_area.new_user_path
+    - if Ecm::UserArea::Configuration.enable_registrations    
+      %li= link_to t('.new'), ecm_user_area.new_user_path

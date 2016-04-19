@@ -1,5 +1,9 @@
 Ecm::UserArea.configure do |config|
-  config.disable_registrations = false
+  # Allow/disallow new user registrations.
+  # 
+  # default: config.enable_registrations = false
+  # 
+  config.enable_registrations = false
 
   # Set the base controller
   #
@@ -45,4 +49,10 @@ Ecm::UserArea.configure do |config|
   # Default: config.email_from_address = 'info@example.com'
   # 
   config.email_from_address = 'info@example.com'
+
+  # Allow/disallow users to remove their own accounts.
+  # 
+  # default: config.allow_users_to_destroy_self = true
+  # 
+  config.allow_users_to_destroy_self = true
 end

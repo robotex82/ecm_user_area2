@@ -9,7 +9,8 @@ module Ecm
         yield self
       end
 
-      mattr_accessor(:disable_registrations) { false }
+      mattr_accessor(:enable_registrations) { false }
+      mattr_accessor(:allow_users_to_destroy_self) { true }
       mattr_accessor(:base_controller) { 'FrontendController' }
       mattr_accessor(:base_mailer) { 'ApplicationMailer' }
       mattr_accessor(:force_after_sign_in_url) { false }
