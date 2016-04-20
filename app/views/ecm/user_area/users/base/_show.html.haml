@@ -1,2 +1,15 @@
-- resource_class.attribute_names.delete_if { |name| [:id].include?(name.to_sym) }.each do |name|
-  = table.row name
+= table.row :fullname
+= table.row :email
+= table.row :single_access_token
+= table.row :login_count
+= table.row :failed_login_count
+= table.row :last_request_at
+= table.row :current_login_at
+= table.row :last_login_at
+= table.row :current_login_ip
+= table.row :last_login_ip
+= table.row :active
+= table.row :approved
+= table.row :approved
+= table.row :created_at
+= table.row :updated_at
