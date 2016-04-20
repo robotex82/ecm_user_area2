@@ -6,7 +6,11 @@ module Ecm::UserArea
     include Controller::RestActionsConcern
     include Controller::RedirectBackConcern
     
-    skip_before_action :authenticate_user!
+    if Rails.version < '5'
+      skip_before_action :authenticate_user!
+    else
+      skip_before_action :authenticate_user!, raise: false
+    end
 
     private
 
