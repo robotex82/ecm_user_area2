@@ -1,6 +1,6 @@
 module Ecm::UserArea
   class UserMailer < Ecm::UserArea::Configuration.base_mailer.constantize
-    default from: Configuration.email_from_address
+    default from: Configuration.email_from_address.call
 
     def password_reset_email(user, host, application_name = nil)
       @host = host

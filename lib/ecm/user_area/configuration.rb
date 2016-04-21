@@ -21,7 +21,11 @@ module Ecm
         end
       end
       mattr_accessor(:application_name) { Rails.application.class.name.deconstantize }
-      mattr_accessor(:email_from_address) { 'info@example.com' }
+      mattr_accessor(:email_from_address) do
+        lambda do
+          ENV['ECM_USER_AREA_FROM_ADDRESS'] || 'info@example.com'
+        end
+      end
     end
   end
 end

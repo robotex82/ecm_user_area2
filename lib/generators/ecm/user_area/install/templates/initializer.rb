@@ -50,8 +50,10 @@ Ecm::UserArea.configure do |config|
   # 
   # Default: config.email_from_address = 'info@example.com'
   # 
-  config.email_from_address = 'info@example.com'
-
+  config.email_from_address = lambda do
+    ENV['ECM_USER_AREA_FROM_ADDRESS'] || 'info@example.com'
+  end
+  
   # Allow/disallow users to remove their own accounts.
   # 
   # default: config.allow_users_to_destroy_self = true
