@@ -12,7 +12,13 @@ module Ecm::UserArea
       skip_before_action :authenticate_user!, raise: false
     end
 
+    before_action :find_using_perishable_token
+
     private
+
+    def load_resource
+      @resource
+    end
 
     def load_resource
       User.find_using_perishable_token(params[:token])
@@ -24,6 +30,15 @@ module Ecm::UserArea
 
     def after_update_location
       new_user_session_path
+    end
+
+    def handle_user_not_found
+      redirect_to new_user_session_path, notice: t("messages.failures.ecm_user_area.perishable_token_invalid")
+    end
+    
+    def find_using_perishable_token
+      @resource =  User.find_using_perishable_token(params[:token])
+      handle_user_not_found if @resource.nil?
     end
   end
 end

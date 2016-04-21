@@ -36,6 +36,8 @@ Ecm::UserArea.configure do |config|
   config.acts_as_authentic_options = ->(c) do
     c.crypto_provider = Authlogic::CryptoProviders::BCrypt
     c.login_field     = :email
+    # How paranoid are you?
+    # c.perishable_token_valid_for = 24.hours
   end
 
   # Application name for mail delivery.
