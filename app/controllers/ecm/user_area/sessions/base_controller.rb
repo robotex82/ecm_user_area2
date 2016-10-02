@@ -42,7 +42,7 @@ module Ecm::UserArea
     private
 
     def after_sign_in_url
-      defined?(super) ? super : "/#{I18n.locale}"
+      defined?(super) ? super : main_app.root_path
     end
 
     def permitted_params

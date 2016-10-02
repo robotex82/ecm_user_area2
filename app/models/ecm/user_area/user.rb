@@ -4,8 +4,8 @@ module Ecm::UserArea
   class User < ActiveRecord::Base
     acts_as_authentic &Ecm::UserArea::Configuration.acts_as_authentic_options
 
-    scope :autocomplete, ->(matcher) { where("LOWER(email) LIKE ?", "%#{matcher.downcase}%") }
-
+    scope :autocomplete,  ->(matcher) { where("LOWER(email) LIKE ?", "%#{matcher.downcase}%") }
+    scope :authenticable, -> { where(active: true, comfirmed: true, approved: true) }
     # def self.current_id=(id)
     #   Thread.current[:user_id] = id
     # end
