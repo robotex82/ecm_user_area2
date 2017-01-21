@@ -33,7 +33,7 @@ Ecm::UserArea.configure do |config|
   #            config.login_field = :email
   #          end
   #          
-  config.acts_as_authentic_options = ->(c) do
+  config.acts_as_authentic_options = lambda do |c|
     c.crypto_provider = Authlogic::CryptoProviders::BCrypt
     c.login_field     = :email
     # How paranoid are you?

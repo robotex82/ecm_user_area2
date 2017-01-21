@@ -49,7 +49,7 @@ module Ecm::UserArea
       if Rails.version < '5'
         params.require(resource_class.name.demodulize.underscore.tr('/', '_')).permit(:email, :password)
       else
-        params.require(resource_class.name.demodulize.underscore.tr('/', '_')).permit(:email, :password).to_hash
+        params.require(resource_class.name.demodulize.underscore.tr('/', '_')).permit(:email, :password).to_h
       end
     end
   end
