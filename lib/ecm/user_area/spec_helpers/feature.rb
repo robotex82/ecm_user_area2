@@ -22,7 +22,7 @@ module Ecm::UserArea
 
           click_on I18n.t('helpers.submit.user_session.create')
         end
-        puts page.body
+        # puts page.body
         # expect(page.status_code).to eq(200)
         # expect(current_path).to     eq("/#{I18n.locale}/backend")
         # expect(page.body).to        have_text(I18n.t('messages.success.ecm_user_area.signed_in'))
