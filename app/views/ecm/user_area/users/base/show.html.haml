@@ -7,9 +7,10 @@
     .col-xs-4
       #page-actions.btn-container-right
         - if Ecm::UserArea::Configuration.allow_users_to_destroy_self
-          = link_to(resource_path(@resource), method: :delete, class: 'btn btn-danger btn-responsive', 'data-confirm': I18n.t('confirmations.delete')) do
-            %span.glyphicon.glyphicon-fire
-            %span.btn-text= t('.destroy')
+          .pull-right
+            = link_to(ecm_user_area.user_path, method: :delete, class: 'btn btn-danger btn-responsive', 'data-confirm': I18n.t('confirmations.delete')) do
+              %span.glyphicon.glyphicon-fire
+              %span.btn-text= t('.destroy')
 
 .panel.panel-default.panel-with-actions
   %table.table.table-striped.table-condensed.table-hover
@@ -21,7 +22,7 @@
 = render 'show_extras', resource: @resource
 
 .well.well-sm
-  = link_to(ecm_user_area.edit_user_path(@resource), class: 'btn btn-primary btn-responsive') do
+  = link_to(ecm_user_area.edit_user_path, class: 'btn btn-primary btn-responsive') do
     %span.glyphicon.glyphicon-pencil
     %span.btn-text= t('.edit')
   = link_to main_app.root_path, class: 'btn btn-default btn-responsive pull-right' do
