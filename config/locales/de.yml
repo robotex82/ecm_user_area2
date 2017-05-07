@@ -101,6 +101,7 @@ de:
         authentication_failed: 'Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.'
         perishable_token_invalid: 'Es konnte kein Benutzer mit dem eingegebenen Token gefunden werden oder ihr Token ist zu alt.'
   routes:
-    mount:
-      ecm_user_area: '/auth'
-    users: benutzer
+    ecm_user_area: benutzer
+    users: profil
+    user_password_reset_request: passwort-reset
+    user_session: session

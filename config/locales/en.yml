@@ -71,6 +71,7 @@ en:
       ecm_user_area:
         authentication_failed: 'You need to sign in or sign up before continuing.'
   routes:
-    mount:
-      ecm_user_area: '/auth'
-    users: users
+    ecm_user_area: users
+    user: profile
+    user_password_reset_request: password-reset
+    user_session: session
