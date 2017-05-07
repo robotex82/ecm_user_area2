@@ -1,4 +1,4 @@
-class CreateEcmUserAreaUsers < ActiveRecord::Migration
+class CreateEcmUserAreaUsers < ActiveRecord::Migration[4.2]
   def change
     create_table :ecm_user_area_users do |t|
       # Authlogic::ActsAsAuthentic::Email
