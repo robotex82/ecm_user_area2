@@ -22,6 +22,9 @@
 = render 'show_extras', resource: @resource
 
 .well.well-sm
+  = link_to(ecm_user_area.user_session_path, class: 'btn btn-warning btn-responsive', method: :delete) do
+    %span.glyphicon.glyphicon-pencil
+    %span.btn-text= t('.sign_out')
   = link_to(ecm_user_area.edit_user_path, class: 'btn btn-primary btn-responsive') do
     %span.glyphicon.glyphicon-pencil
     %span.btn-text= t('.edit')

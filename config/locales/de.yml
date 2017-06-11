@@ -70,6 +70,7 @@ de:
             back: Zurück
             destroy: 'Löschen'
             edit: 'Bearbeiten'
+            sign_out: Ausloggen
   flash:
     ecm:
       user_area:
@@ -85,9 +86,9 @@ de:
         create: 'Weiter'
       user_session:
         create: 'Einloggen'
-      user:
-        create: 'Registrieren'
-        update: 'Aktualisieren'
+      # user:
+      #   create: 'Registrieren'
+      #   update: 'Aktualisieren'
   messages:
     confirmations:
       ecm_user_area:
@@ -101,7 +102,7 @@ de:
         authentication_failed: 'Sie müssen sich anmelden oder registrieren, bevor Sie fortfahren können.'
         perishable_token_invalid: 'Es konnte kein Benutzer mit dem eingegebenen Token gefunden werden oder ihr Token ist zu alt.'
   routes:
-    ecm_user_area: benutzer
+    ecm_user_area_engine: benutzer
     users: profil
     user_password_reset_request: passwort-reset
     user_session: session

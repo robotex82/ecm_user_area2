@@ -49,13 +49,14 @@ en:
             back: Back
             destroy: 'Destroy'
             edit: 'Edit'
+            sign_out: Sign out
   helpers:
     submit:
       user_session:
         create: 'Sign in'
-      user:
-        create: 'Create Account'
-        update: 'Update Account'
+      # user:
+      #   create: 'Create Account'
+      #   update: 'Update Account'
   locales:
     de: Deutsch
     en: English
@@ -71,7 +72,7 @@ en:
       ecm_user_area:
         authentication_failed: 'You need to sign in or sign up before continuing.'
   routes:
-    ecm_user_area: users
+    ecm_user_area_engine: users
     user: profile
     user_password_reset_request: password-reset
     user_session: session
