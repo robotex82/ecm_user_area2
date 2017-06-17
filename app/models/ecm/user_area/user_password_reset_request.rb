@@ -19,7 +19,7 @@ module Ecm
       validates :user, presence: true
 
       before_validation :load_user
-      after_validation :delete_error_on_user, if: ->() { errors.get(:email).present? }
+      after_validation :delete_error_on_user, if: ->() { errors.has_key?(:email) }
 
       def save
         return unless valid?

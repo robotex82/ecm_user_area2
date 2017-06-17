@@ -1,5 +1,5 @@
 module Ecm::UserArea
-  class UsersController < Users::BaseController
+  class CurrentUsersController < Users::BaseController
     def self.resource_class
       User
     end

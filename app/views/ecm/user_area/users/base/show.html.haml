@@ -8,7 +8,7 @@
       #page-actions.btn-container-right
         - if Ecm::UserArea::Configuration.allow_users_to_destroy_self
           .pull-right
-            = link_to(ecm_user_area.user_path, method: :delete, class: 'btn btn-danger btn-responsive', 'data-confirm': I18n.t('confirmations.delete')) do
+            = link_to(ecm_user_area.current_user_path, method: :delete, class: 'btn btn-danger btn-responsive', 'data-confirm': I18n.t('confirmations.delete')) do
               %span.glyphicon.glyphicon-fire
               %span.btn-text= t('.destroy')
 
@@ -25,7 +25,7 @@
   = link_to(ecm_user_area.user_session_path, class: 'btn btn-warning btn-responsive', method: :delete) do
     %span.glyphicon.glyphicon-pencil
     %span.btn-text= t('.sign_out')
-  = link_to(ecm_user_area.edit_user_path, class: 'btn btn-primary btn-responsive') do
+  = link_to(ecm_user_area.edit_current_user_path, class: 'btn btn-primary btn-responsive') do
     %span.glyphicon.glyphicon-pencil
     %span.btn-text= t('.edit')
   = link_to main_app.root_path, class: 'btn btn-default btn-responsive pull-right' do
