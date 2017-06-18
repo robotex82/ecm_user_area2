@@ -57,20 +57,19 @@ de:
             title: Einloggen
             password:
               new: 'Passwort vergessen'
-      users:
-        base:
-          edit:
-            back: Zurück
-            show: Anzeigen
-            title: Mein Account
-          new:
-            back: Zurück
-            title: Registrieren
-          show:
-            back: Zurück
-            destroy: 'Löschen'
-            edit: 'Bearbeiten'
-            sign_out: Ausloggen
+      current_users:
+        edit:
+          back: Zurück
+          show: Anzeigen
+          title: Mein Account
+        new:
+          back: Zurück
+          title: Registrieren
+        show:
+          back: Zurück
+          destroy: 'Löschen'
+          edit: 'Bearbeiten'
+          sign_out: Ausloggen
   flash:
     ecm:
       user_area:

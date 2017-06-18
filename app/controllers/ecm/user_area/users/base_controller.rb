@@ -24,7 +24,7 @@ module Ecm::UserArea
         redirect_to(new_user_session_path)
         return
       end
-      respond_with @resource, location: edit_user_path
+      respond_with @resource, location: edit_current_user_path
     end
 
     private

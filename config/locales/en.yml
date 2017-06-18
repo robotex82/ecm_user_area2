@@ -36,20 +36,19 @@ en:
             title: Sign in
             password:
               new: Forgot password
-      users:
-        base:
-          edit:
-            back: Back
-            show: Show
-            title: My Account
-          new:
-            back: Back
-            title: Register
-          show:
-            back: Back
-            destroy: 'Destroy'
-            edit: 'Edit'
-            sign_out: Sign out
+      current_users:
+        edit:
+          back: Back
+          show: Show
+          title: My Account
+        new:
+          back: Back
+          title: Register
+        show:
+          back: Back
+          destroy: 'Destroy'
+          edit: 'Edit'
+          sign_out: Sign out
   helpers:
     submit:
       user_session:
