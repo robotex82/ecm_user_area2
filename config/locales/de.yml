@@ -70,7 +70,10 @@ de:
           destroy: 'Löschen'
           edit: 'Bearbeiten'
           sign_out: Ausloggen
-  flash:
+      users:
+        base:
+          show:
+            sign_out: Ausloggen
     ecm:
       user_area:
         user_password_resets:
