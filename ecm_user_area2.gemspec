@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '>= 4.0'
 
+  s.add_dependency 'ecm_core'
   s.add_dependency 'active_model_serializers'
   s.add_dependency 'authlogic'
   s.add_dependency 'bcrypt'
