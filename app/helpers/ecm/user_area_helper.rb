@@ -1,11 +1,13 @@
 module Ecm::UserAreaHelper
   def render_user_navigation(*args)
     options = args.extract_options!
-    options.reverse_merge!(dropdown: false)
+    options.reverse_merge!(dropdown: false, bootstrap_version: 3)
     dropdown = options.delete(:dropdown)
+    bootstrap_version = options.delete(:bootstrap_version)
+
 
     if dropdown
-      render partial: 'ecm/user_area/navigation_dropdown'
+      render partial: "ecm/user_area/navigation_dropdown/bootstrap#{bootstrap_version}"
     else
       render partial: 'ecm/user_area/navigation'
     end
