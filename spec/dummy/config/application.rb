@@ -9,8 +9,8 @@ require 'sprockets/railtie'
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require 'byebug'
-require 'web-console'
+require 'pry-rails'
+require 'launchy'
 require 'jquery-rails'
 require 'haml-rails'
 require 'route_translator'
@@ -32,6 +32,6 @@ module Dummy
     # config.i18n.default_locale = :de
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
+    config.active_record.raise_in_transactional_callbacks = true if Rails.version < '5.0.0'
   end
 end

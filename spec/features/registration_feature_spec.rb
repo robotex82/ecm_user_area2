@@ -1,8 +1,8 @@
 require 'rails_helper'
-require 'ecm/user_area/spec_helper'
+require 'ecm/user_area/spec_helpers/feature'
 
 feature 'User Area -> Registration' do
-  include Ecm::UserArea::SpecHelper
+  include Ecm::UserArea::SpecHelpers::Feature
 
   background do
     I18n.locale = :de
@@ -20,7 +20,7 @@ feature 'User Area -> Registration' do
 
       it 'should redirect to root' do
         sign_up(@user_attributes)
-        expect(page.current_path).to eq('/de/auth/user_session/new')
+        expect(page.current_path).to eq(main_app.root_path)
       end
 
       it 'should show a success message' do
@@ -31,6 +31,7 @@ feature 'User Area -> Registration' do
   end
 
   describe 'editing a registration' do
+    let(:edit_current_user_path) { "/de/benutzer/profil/edit" }
     context 'when signed in' do
       background do
         @user = Ecm::UserArea::CreateDefaultUserService.call.user
@@ -38,19 +39,21 @@ feature 'User Area -> Registration' do
       end
 
       it 'should allow access' do
-        visit '/de/auth/user/edit'
-        page.current_path.should eq('/de/auth/user/edit')
+        visit(edit_current_user_path)
+        page.current_path.should eq(edit_current_user_path)
       end
 
       context 'changing email' do
+        let(:new_user_session_path) { "/de/benutzer/session/new" }
+        
         background do
-          visit '/de/auth/user/edit'
+          visit(edit_current_user_path)
         end
 
         it do
           expect do
             fill_in 'user[email]', with: 'new@example.com'
-            click_on submit(:user, :update)
+            click_on submit(Ecm::UserArea::User.model_name.human, :update)
           end.to change {
             @user.reload
             @user.email
@@ -59,17 +62,19 @@ feature 'User Area -> Registration' do
 
         it 'should sign out' do
           fill_in 'user[email]', with: 'new@example.com'
-          click_on submit(:user, :update)
+          click_on submit(Ecm::UserArea::User.model_name.human, :update)
 
-          expect(page.current_path).to eq('/de/auth/user_session/new')
+          expect(page.current_path).to eq(new_user_session_path)
         end
       end
     end
 
     context 'when not signed in' do
+      let(:new_user_session_path) { "/de/benutzer/session/new" }
+      
       it 'should redirect to the sign in page' do
-        visit '/de/auth/user/edit'
-        page.current_path.should eq('/de/auth/user_session/new')
+        visit(edit_current_user_path)
+        page.current_path.should eq(new_user_session_path)
       end
     end
   end

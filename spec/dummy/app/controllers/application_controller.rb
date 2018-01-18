@@ -5,5 +5,9 @@ class ApplicationController < ActionController::Base
 
   helper Ecm::UserAreaHelper
 
+  include Controller::CurrentUserConcern  
+  # From ECM User Area
+  include Controller::RedirectBackConcern
   include Controller::CurrentUserConcern
+
 end

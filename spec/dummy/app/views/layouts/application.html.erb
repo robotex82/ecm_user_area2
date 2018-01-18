@@ -52,17 +52,14 @@
             <li><%= link_to "Link2", "/path2"  %></li>
             <li><%= link_to "Link3", "/path3"  %></li>
           </ul>
+          <%= render_user_navigation %>
         </div>
-
         
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <%= render_user_navigation %>
-        </div>
 
       </div>
     </div>

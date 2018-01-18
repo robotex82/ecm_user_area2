@@ -1,8 +1,8 @@
 require 'rails_helper'
-require 'ecm/user_area/spec_helper'
+require 'ecm/user_area/spec_helpers/feature'
 
 feature 'User Area -> Authentication' do
-  include Ecm::UserArea::SpecHelper
+  include Ecm::UserArea::SpecHelpers::Feature
 
   background do
     I18n.locale = :de
