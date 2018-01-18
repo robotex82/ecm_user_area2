@@ -23,9 +23,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'authlogic'
   s.add_dependency 'bcrypt'
   s.add_dependency 'haml-rails'
-  s.add_dependency 'itsf_services'
   s.add_dependency 'resource_renderer'
-  s.add_dependency 'rails_rad'
+  s.add_dependency 'rails-add_ons'
   s.add_dependency 'simple_form'
 
   s.add_development_dependency 'pry-rails'
@@ -36,6 +35,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'jquery-rails'
   s.add_development_dependency 'route_translator'
   s.add_development_dependency 'therubyracer'
+  s.add_development_dependency 'sass-rails'
   s.add_development_dependency 'less-rails'
   s.add_development_dependency 'twitter-bootstrap-rails'
 

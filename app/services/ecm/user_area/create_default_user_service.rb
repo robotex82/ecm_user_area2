@@ -1,12 +1,11 @@
 module Ecm::UserArea
-  class CreateDefaultUserService < Itsf::Services::V2::Service::Base
-    class Response < Itsf::Services::V2::Response::Base
+  class CreateDefaultUserService < ::Ecm::UserArea::ApplicationService
+    class Result < ::Ecm::UserArea::ApplicationService::Result
       attr_accessor :user
     end
 
-    def do_work
-      response.user = create_default_user
-      respond
+    def _perform
+      @result.user = create_default_user
     end
 
     private
@@ -14,9 +13,9 @@ module Ecm::UserArea
     def create_default_user
       user = Ecm::UserArea::User.new(user_attributes)
       if user.save
-        info 'Created default user'
+        say 'Created default user'
       else
-        error "Could not create default user. Errors: #{user.errors.full_messages.to_sentence}"
+        add_error_and_say(:base, "Could not create default user. Errors: #{user.errors.full_messages.to_sentence}")
       end
       user
     end

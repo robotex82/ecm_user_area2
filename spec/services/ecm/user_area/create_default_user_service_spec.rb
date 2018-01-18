@@ -2,7 +2,7 @@ require 'rails_helper'
 
 module Ecm::UserArea
   describe CreateDefaultUserService do
-    it { expect(subject).to be_a(Itsf::Services::V2::Service::Base) }
+    it { expect(subject).to be_a(Rails::AddOns::Service::Base) }
 
     it 'should create a user' do
       expect do

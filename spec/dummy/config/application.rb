@@ -12,6 +12,7 @@ Bundler.require(*Rails.groups)
 require 'pry-rails'
 require 'launchy'
 require 'jquery-rails'
+require 'sass-rails'
 require 'haml-rails'
 require 'route_translator'
 require 'twitter-bootstrap-rails'
