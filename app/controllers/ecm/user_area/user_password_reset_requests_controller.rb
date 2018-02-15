@@ -1,13 +1,15 @@
-module Ecm::UserArea
-  class UserPasswordResetRequestsController < PasswordResetRequests::BaseController
-    def self.resource_class
-      UserPasswordResetRequest
-    end
+module Ecm
+  module UserArea
+    class UserPasswordResetRequestsController < PasswordResetRequests::BaseController
+      def self.resource_class
+        Ecm::UserArea::UserPasswordResetRequest
+      end
 
-    private
+      private
 
-    def after_create_location
-      new_user_session_path
+      def after_create_location
+        new_user_session_path
+      end
     end
   end
 end

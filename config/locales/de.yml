@@ -34,8 +34,11 @@ de:
         not_signed_in: Nicht angemeldet
         sign_in: Einloggen
         sign_out: Ausloggen
-      navigation_dropdown: 
-        <<: *navigation
+      navigation_dropdown:
+        bootstrap3:
+          <<: *navigation
+        bootstrap4:
+          <<: *navigation
       password_reset_requests:
         base:
           new:
