@@ -2,12 +2,12 @@
 
 #page-title.bottom-margin-1
   .row
-    .col-xs-8
+    .col-xs-8.col-8.mr-auto
       %h1= @resource.human
-    .col-xs-4
+    .col-xs-4.col-4
       #page-actions.btn-container-right
         - if Ecm::UserArea::Configuration.allow_users_to_destroy_self
-          .pull-right
+          .pull-right.text-right
             = link_to(ecm_user_area.current_user_path, method: :delete, class: 'btn btn-danger btn-responsive', 'data-confirm': I18n.t('confirmations.delete')) do
               %span.glyphicon.glyphicon-fire
               %span.btn-text= t('.destroy')
@@ -22,12 +22,13 @@
 = render 'show_extras', resource: @resource
 
 .well.well-sm
-  = link_to(ecm_user_area.user_session_path, class: 'btn btn-warning btn-responsive', method: :delete) do
-    %span.glyphicon.glyphicon-pencil
-    %span.btn-text= t('.sign_out')
-  = link_to(ecm_user_area.edit_current_user_path, class: 'btn btn-primary btn-responsive') do
-    %span.glyphicon.glyphicon-pencil
-    %span.btn-text= t('.edit')
+  .btn-group
+    = link_to(ecm_user_area.user_session_path, class: 'btn btn-warning btn-responsive', method: :delete) do
+      %span.glyphicon.glyphicon-pencil
+      %span.btn-text= t('.sign_out')
+    = link_to(ecm_user_area.edit_current_user_path, class: 'btn btn-primary btn-responsive') do
+      %span.glyphicon.glyphicon-pencil
+      %span.btn-text= t('.edit')
   = link_to main_app.root_path, class: 'btn btn-default btn-responsive pull-right' do
     %span.glyphicon.glyphicon-arrow-left
     %span.btn-text= t('.back')
