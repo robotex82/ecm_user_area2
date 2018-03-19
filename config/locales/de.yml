@@ -44,7 +44,7 @@ de:
   ecm:
     user_area:
       navigation: &navigation
-        edit: Mein Account
+        show: Mein Account
         new: Registrieren
         not_signed_in: Nicht angemeldet
         sign_in: Einloggen
@@ -92,6 +92,7 @@ de:
         base:
           show:
             sign_out: Ausloggen
+  flash:
     ecm:
       user_area:
         user_password_resets:
@@ -99,7 +100,7 @@ de:
             notice: 'Passwort aktualisiert'
         user_password_reset_requests:
           create:
-            notice: 'Anweisungen zum zurücksetzen des Passworts versandt'
+            notice: 'Anweisungen zum zurücksetzen des Passworts versandt.'
   helpers:
     submit:
       user_password_reset_request:
