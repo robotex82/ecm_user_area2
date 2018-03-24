@@ -7,8 +7,8 @@
 = table.timestamp :last_login_at
 = table.row :current_login_ip
 = table.row :last_login_ip
-= table.row :active
-= table.row :confirmed
-= table.row :approved
+= table.boolean :active
+= table.boolean :confirmed
+= table.boolean :approved
 = table.timestamp :created_at
 = table.timestamp :updated_at

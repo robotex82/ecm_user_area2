@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'bcrypt'
   s.add_dependency 'haml-rails'
   s.add_dependency 'resource_renderer'
-  s.add_dependency 'rails-add_ons'
+  s.add_dependency 'rails-add_ons', '>= 2.2.0'
   s.add_dependency 'simple_form'
 
   s.add_development_dependency 'pry-rails'
