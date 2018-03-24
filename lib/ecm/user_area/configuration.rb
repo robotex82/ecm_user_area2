@@ -26,6 +26,7 @@ module Ecm
           ENV['ECM_USER_AREA_FROM_ADDRESS'] || 'info@example.com'
         end
       end
+      mattr_accessor(:current_user_additional_table_rows_proc) { nil }
     end
   end
 end

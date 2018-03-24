@@ -10,5 +10,5 @@
 = table.boolean :active
 = table.boolean :confirmed
 = table.boolean :approved
-= table.timestamp :created_at
-= table.timestamp :updated_at
+= table.timestamps
+= Ecm::UserArea::Configuration.current_user_additional_table_rows_proc.try(:call, self, table)
