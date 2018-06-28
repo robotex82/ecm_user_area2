@@ -17,13 +17,11 @@ Ecm::UserArea.configure do |config|
   #
   config.base_mailer = 'ApplicationMailer'
 
-  # Settings this to true forces the after_sign_in_url after sign in.
-  # If set to false, redirect to previous location will happen if 
-  # existent.
-  # 
-  # Default: config.force_after_sign_in_url = false
+  # Where to redirect to after successful login
   #
-  config.force_after_sign_in_url = false
+  # Default: config.after_sign_in_url = ->(controller) { main_app.root_path }
+  #
+  config.after_sign_in_url = ->(controller) { main_app.root_path }
 
   # This is the block, that will be passed to the acts_as_authentic call
   # in the user model.

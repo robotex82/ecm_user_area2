@@ -1,5 +1,14 @@
 = ECM User Area
 
+= Migration to 4.0.0
+
+Defining after_sign_in_url in the controller is not supported anymore. Control
+the after sign in location by configuring it in the initializer:
+
+    # config/initalizers/ecm_user_area.rb
+    Ecm::UserArea.configure do |config|
+      config.after_sign_in_url = ->(controller) { last_location || main_app.root_path }
+    end
 
 = Installation
 

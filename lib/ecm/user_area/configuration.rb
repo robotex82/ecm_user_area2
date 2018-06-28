@@ -13,7 +13,6 @@ module Ecm
       mattr_accessor(:allow_users_to_destroy_self) { true }
       mattr_accessor(:base_controller) { 'FrontendController' }
       mattr_accessor(:base_mailer) { 'ApplicationMailer' }
-      mattr_accessor(:force_after_sign_in_url) { false }
       mattr_accessor(:acts_as_authentic_options) do
         ->(config) do
           config.crypto_provider = Authlogic::CryptoProviders::BCrypt
@@ -27,6 +26,7 @@ module Ecm
         end
       end
       mattr_accessor(:current_user_additional_table_rows_proc) { nil }
+      mattr_accessor(:after_sign_in_url) { ->(controller) { main_app.root_path } }
     end
   end
 end

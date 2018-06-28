@@ -9,6 +9,7 @@ module Ecm
         include ResourcesController::LocationHistory
 
         skip_before_action :authenticate_user!, only: [:new, :create], raise: false
+        skip_before_action :store_location, only: [:new, :create]
 
         def new
           @session = initialize_resource
@@ -20,11 +21,7 @@ module Ecm
 
           if @session.save
             flash[:notice] = I18n.t('messages.success.ecm_user_area.signed_in') unless request.xhr?
-            if Configuration.force_after_sign_in_url
-              redirect_to(after_sign_in_url)
-            else
-              redirect_back_or(after_sign_in_url)
-            end
+            redirect_to(instance_eval(&Configuration.after_sign_in_url))
             return
           else
             render action: :new
@@ -42,10 +39,6 @@ module Ecm
         end
 
         private
-
-        def after_sign_in_url
-          defined?(super) ? super : main_app.root_path
-        end
 
         def permitted_params
           if Rails.version < '5'
