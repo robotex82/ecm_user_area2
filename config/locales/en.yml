@@ -44,6 +44,7 @@ en:
   ecm:
     user_area:
       navigation: &navigation
+        show: My Account
         edit: My Account
         new: Register
         not_signed_in: Not signed in
